@@ -19,5 +19,22 @@ int main()
 	printf("Or operator result is %d\n", or_result);
 	printf("Xor operator result is %d\n", xor_result);
 
+	int previous_a_value = a;
+	a = a << 2; // 0000 0000 0000 0000 0000 0000 1111 0000
+	printf("A was equal to %d, but now is equal to %d\n", previous_a_value, a);
+	
+	previous_a_value = a;
+	a = a << 2; // 0000 0000 0000 0000 0000 0011 1100 0000
+	printf("A was equal to %d, but now is equal to %d\n", previous_a_value, a);
+
+	previous_a_value = a;
+	a = a >> 4 ; // 0000 0000 0000 0000 0000 0000 0011 1100
+	printf("A was equal to %d, but now is equal to %d\n", previous_a_value, a);
+	
+        previous_a_value = a;
+	a = a >> 4; // 0000 0000 0000 0000 0000 0000 0000 0011
+	printf("A was equal to %d, but now is equal to %d\n", previous_a_value, a);
+	
+
 	return 0;
 }
