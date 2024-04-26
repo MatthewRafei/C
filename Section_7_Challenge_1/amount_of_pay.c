@@ -1,40 +1,38 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+#define WAGE 12.0
+#define FTE_HRS 40.0
+#define OT_RATE 1.5
+
+#define FIRST_TAX_RATE 15.0
+#define SECOND_TAX_RATE 20.0
+#define TAX_RATE_REST 25.0
+
+// First tax rate applies to the first $300
+// Second tax rate applies to the next $150
+// Then tax rate of 25% applies to the rest
+
 int main()
 {
+	float total_hrs = 0;
+	float total_wage = 0;
+	float ot_hrs = 0;
+	float ot_wage = 0;
 
-	const float pay_rate = 12.0;
-	float hours = 0;
+	printf("How many hours have you worked this week: ");
+	scanf("%f", &total_hrs);
 
-	printf("How many hours have your worked this week: ");
-	scanf("%f", &hours);
-
-	if(hours > 40.0){
-		float overtime_hours = 0.0;
-		float overtime_pay = 0.0;
-
-		float reg_pay = 40.0 * pay_rate;
-
-		overtime_hours = hours - 40.0;
-		overtime_pay = (overtime_hours * pay_rate) * 1.5;
-
-		float total_pay = reg_pay + overtime_pay;
+	if(total_hrs > FTE_HRS){
+		ot_hrs = total_hrs - FTE_HRS;
+		ot_wage = total_hrs * WAGE * OT_RATE;
+		total_wage = FTE_HRS * WAGE + ot_wage;
 	}
 	else{
-		float total_pay = hours * pay_rate;
+		total_wage = total_hrs * WAGE;
 	}
-
-	if(total_pay > 300){
-		float fifteen_per_tax_income = 0;
-	}
-
-
-
-
-
-		
-
+	
+	
 
 
 
@@ -43,3 +41,9 @@ int main()
 
 	return 0;
 }
+
+
+
+
+
+	
