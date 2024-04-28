@@ -25,25 +25,35 @@ int main()
 
 	if(total_hrs > FTE_HRS){
 		ot_hrs = total_hrs - FTE_HRS;
-		ot_wage = total_hrs * WAGE * OT_RATE;
+		ot_wage = ot_hrs * WAGE * OT_RATE;
 		total_wage = FTE_HRS * WAGE + ot_wage;
 	}
 	else{
 		total_wage = total_hrs * WAGE;
 	}
-	
-	
 
+	float three_hundred_of_wage = 0;
+	float hundred_fifty_of_wage = 0;
 
+	
+	if(total_wage > 300){ 
+		three_hundred_of_wage = 15 * 300 / 100;
+		total_wage -= 300;
+	}
+
+	if(total_wage > 150){
+		hundred_fifty_of_wage = 20 * 150 / 100;
+		total_wage -= 150;
+	}
+
+	total_wage = 25 * total_wage / 100;
+
+	total_wage += three_hundred_of_wage + hundred_fifty_of_wage;
+
+	printf("total wage is equal to $%.2f\n", total_wage);
 
 
 
 
 	return 0;
-}
-
-
-
-
-
-	
+}	
