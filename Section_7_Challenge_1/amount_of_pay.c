@@ -13,6 +13,8 @@
 // Second tax rate applies to the next $150
 // Then tax rate of 25% applies to the rest
 
+// This code is an example of being bothered by not knowing data structures lol
+
 int main()
 {
 	float total_hrs = 0;
@@ -32,28 +34,31 @@ int main()
 		total_wage = total_hrs * WAGE;
 	}
 
-	float three_hundred_of_wage = 0;
-	float hundred_fifty_of_wage = 0;
-
+	float tax = 0.0;
+	float holder = total_wage;
 	
-	if(total_wage > 300){ 
-		three_hundred_of_wage = 15 * 300 / 100;
+	if(total_wage > 300){
 		total_wage -= 300;
+		if(total_wage > 150){
+			total_wage -= 150;
+			if(total_wage > 0){
+				total_wage = 25 * total_wage / 100;
+			}
+			total_wage += 20 * 150 / 100;
+		}
+		else{
+			total_wage = 20 * total_wage / 100;
+		}
+		total_wage += 15 * 300 / 100;
+	}
+	else{
+		total_wage = 15 * total_wage / 100;
 	}
 
-	if(total_wage > 150){
-		hundred_fifty_of_wage = 20 * 150 / 100;
-		total_wage -= 150;
-	}
+	tax = total_wage;
+	total_wage = holder;
 
-	total_wage = 25 * total_wage / 100;
-
-	total_wage += three_hundred_of_wage + hundred_fifty_of_wage;
-
-	printf("total wage is equal to $%.2f\n", total_wage);
-
-
-
+	printf("Your total wage is %.2f, and you paid %.2f in taxes", total_wage, tax);
 
 	return 0;
-}	
+}
