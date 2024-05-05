@@ -52,7 +52,7 @@ int main()
 		sum += yearlySum[i] / YEARS;
 	}
 	
-	// Should be 641.34 
+	// Print yearly average 
 	printf("\nThe yearly average is %.1f\n\n", sum);
 	
 	// Get monthly averages
