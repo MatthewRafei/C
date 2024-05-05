@@ -6,8 +6,6 @@
 
 int main()
 {
-
-
 	double rainfall[YEARS][MONTHS] = 
 	{
 		{37.3, 22.5, 14.8, 68.7, 20.5, 64.0, 51.1, 81.9, 72.7, 99.7, 58.2, 27.1},
@@ -47,24 +45,22 @@ int main()
 		printf("201%d    %.1f\n", i, yearlySum[i]);
 	}
 	
-	// Get each years average
-	for(int i = 0; i < YEARS; i++){
-		yearlyAvg[i] = yearlySum[i] / MONTHS;
-	}
-	
 	sum = 0.0;
 	
+	// Get average of all years	
 	for(int i = 0; i < YEARS; i++){
-		sum += yearlyAvg[i] / YEARS;
+		sum += yearlySum[i] / YEARS;
 	}
 	
 	// Should be 641.34 
 	printf("\nThe yearly average is %.1f\n\n", sum);
-
+	
+	// Get monthly averages
 	for(int i = 0; i < MONTHS; i++){
 		monthlyAvg[i] = monthlySum[i] / YEARS;
 	}
-
+	
+	// Print monthly averages
 	printf("MONTHLY AVERAGES:\n\n");
 
 	printf("Jan    Feb    Mar    Apr    May    Jun    Jul    Aug    Sep    Oct    Nov    Dec\n");
